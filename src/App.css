@@ -1,0 +1,95 @@
+body {
+  background-color: #005caa;
+  display: flex;
+  margin: 0;
+}
+
+.img {
+  position: fixed;
+  top: 20px; /* Ajuste conforme necessário */
+  left: 20px; /* Ajuste conforme necessário */
+  width: 200px;
+  height: 100px;
+}
+
+select {
+  background-color: white;
+  position: fixed;
+  top: 190px; 
+  left: 224px; 
+  color: black;
+  width: 400px;
+  height: 40px;
+
+}
+
+select option {
+  color: rgb(15, 11, 11);
+}
+
+h1{
+  position: fixed;
+  top: 10px; 
+  left: 25%;
+  color: white;
+}
+
+.input1 {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 250px; 
+  left: 215px; 
+  padding: 5px; 
+  width: 405px;
+  font-size: 20px;
+  
+
+  
+}
+
+input:not([type="color"]) {
+  background-color: white;
+  border: white;
+}
+
+input[type="text"] {
+  padding: 4px;
+  color: black;
+}
+
+.botao {
+  color: rgb(10, 5, 5);
+  background-color: white;
+  position: fixed;
+  top: 450px; 
+  left: 340px;
+  height: 50px;
+  width: 150px; 
+}
+.botao2{
+  color: black;
+  background-color: white;
+  position: fixed;
+  top:70px;
+  left: 85%;
+  border-radius: 15px;
+  width: 11%;
+}
+.linha {
+  
+  width: 97%; /* Faz a linha ocupar toda a largura do contêiner */
+  position: fixed;
+  top: 110px; /* Ajuste conforme necessário */
+  left: 20px; 
+}
+
+.linhaVertical{
+
+  height: 100%;
+  position: fixed;
+  top: 110px; 
+  left:80%;
+
+}
