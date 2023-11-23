@@ -6,8 +6,8 @@ body {
 
 .img {
   position: fixed;
-  top: 20px; /* Ajuste conforme necessário */
-  left: 20px; /* Ajuste conforme necessário */
+  top: 20px; 
+  left: 20px; 
   width: 200px;
   height: 100px;
 }
@@ -63,7 +63,7 @@ input[type="text"] {
   color: rgb(10, 5, 5);
   background-color: white;
   position: fixed;
-  top: 450px; 
+  top: 550px; 
   left: 340px;
   height: 50px;
   width: 150px; 
@@ -81,7 +81,7 @@ input[type="text"] {
   
   width: 97%; /* Faz a linha ocupar toda a largura do contêiner */
   position: fixed;
-  top: 110px; /* Ajuste conforme necessário */
+  top: 110px; 
   left: 20px; 
 }
 
@@ -93,3 +93,24 @@ input[type="text"] {
   left:80%;
 
 }
+
+/* colocar no css do app final */
+
+.inputDias{ /* box*/
+display: flex;
+flex-direction: column;
+top: 230px;
+left: 700px;
+}
+.diaD{
+  /*titulo*/
+margin-top: -240px;
+margin-left: 500px;
+width: 300px;
+   
+  
+    
+    
+    
+    
+  }

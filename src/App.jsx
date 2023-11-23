@@ -6,15 +6,30 @@ function App() {
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   const [input3, setInput3] = useState('');
+  const [input4, setInput4] = useState('');
+  const [input5, setInput5] = useState('');
+  const [selectedDays, setSelectedDays] = useState([]);
+
 
   const handleOptionClick = () => {
    
-    alert(`Cadastrar ${selectedOption} - Input 1: ${input1} - Input 2: ${input2} - Input 3: ${input3}`);
+    alert(`Cadastrar ${selectedOption} - Input 1: ${input1} - Input 2: ${input2} - Input 3: ${input3} Input 4: ${input4}  Input : ${input5}`);
   };
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
   };
+
+  const handleDayToggle = (day) => {
+  if (selectedDays.includes(day)) {
+    // Se o dia estiver selecionado, remover
+    setSelectedDays(selectedDays.filter((selectedDay) => selectedDay !== day));
+  } else {
+    // Se o dia não estiver selecionado, adicionar
+    setSelectedDays([...selectedDays, day]);
+  }
+};
+
 
   return (
     <div >
@@ -29,54 +44,135 @@ function App() {
       
       
      
-      <select value={selectedOption} onChange={handleSelectChange}>
+    <select value={selectedOption} onChange={handleSelectChange}>
         <option value=""></option>
-        <option value="Turma"> Turma</option>
-        <option value="Sala"> Sala</option>
-        <option value="Professor"> Professor</option>
+        <option value="Turmas">Turmas</option>
+        <option value="Salas">Salas</option>
+        <option value="Disciplinas">Disciplina</option>
+        <option value="Professores">Professores</option>
+        <option value="Cursos">Cursos</option>
+        <option value="Agenda">Agenda</option>
       </select>
-     
 
-      {selectedOption === 'Turma' && (
+      {selectedOption === 'Turmas' && (
         <div className='input1'>
-          <label >Nome da Turma:</label>
+          <label>Nome da Turma:</label>
           <input type="text" value={input1} onChange={(e) => setInput1(e.target.value)} />
-
-          <label>Código da Turma:</label>
+          <label>Id do curso:</label>
           <input type="text" value={input2} onChange={(e) => setInput2(e.target.value)} />
         </div>
       )}
 
-      {selectedOption === 'Professor' && (
+      {selectedOption === 'Professores' && (
         <div className='input1'>
           <label>Nome do Professor:</label>
           <input type="text" value={input1} onChange={(e) => setInput1(e.target.value)} />
-
-          <label>Matrícula do Professor:</label>
+          <label>CPF:</label>
           <input type="text" value={input2} onChange={(e) => setInput2(e.target.value)} />
-
           <label>Disciplina do Professor:</label>
           <input type="text" value={input3} onChange={(e) => setInput3(e.target.value)} />
+          <div className='diaD'>
+            <label>Dias da semana disponíveis:</label>
+            <div className='inputDias'>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Segunda-feira"
+                  checked={selectedDays.includes("Segunda-feira")}
+                  onChange={() => handleDayToggle("Segunda-feira")}
+                />
+                Segunda-feira
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Terça-feira"
+                  checked={selectedDays.includes("Terça-feira")}
+                  onChange={() => handleDayToggle("Terça-feira")}
+                />
+                Terça-feira
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Quarta-feira"
+                  checked={selectedDays.includes("Quarta-feira")}
+                  onChange={() => handleDayToggle("Quarta-feira")}
+                />
+                Quarta-feira
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Quinta-feira"
+                  checked={selectedDays.includes("Quinta-feira")}
+                  onChange={() => handleDayToggle("Quinta-feira")}
+                />
+                Quinta-feira
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  value="Sexta-feira"
+                  checked={selectedDays.includes("Sexta-feira")}
+                  onChange={() => handleDayToggle("Sexta-feira")}
+                />
+                Sexta-feira
+              </label>
+            </div>
+          </div>
         </div>
       )}
 
-      {selectedOption === 'Sala' && (
+      {selectedOption === 'Disciplinas' && (
         <div className='input1'>
-          <label>Número da Sala:</label>
+          <label>CPF do professor que vai lecionar a Disciplina:</label>
           <input type="text" value={input1} onChange={(e) => setInput1(e.target.value)} />
+          <label>Nome da Disciplina:</label>
+          <input type="text" value={input2} onChange={(e) => setInput2(e.target.value)} />
+        </div>
+      )}
 
-          <label>Localização da Sala:</label>
+      {selectedOption === 'Cursos' && (
+        <div className='input1'>
+          <label>Nome do Curso:</label>
+          <input type="text" value={input1} onChange={(e) => setInput1(e.target.value)} />
+          <label>Codigo do curso:</label>
+          <input type="text" value={input2} onChange={(e) => setInput2(e.target.value)} />
+        </div>
+      )}
+
+      {selectedOption === 'Agenda' && (
+        <div className='input1'>
+          <label>ID do curso:</label>
+          <input type="text" value={input1} onChange={(e) => setInput1(e.target.value)} />
+          <label>ID da turma:</label>
+          <input type="text" value={input2} onChange={(e) => setInput2(e.target.value)} />
+          <label>CPF do professor:</label>
+          <input type="text" value={input3} onChange={(e) => setInput3(e.target.value)} />
+          <label>ID da sala:</label>
+          <input type="text" value={input4} onChange={(e) => setInput4(e.target.value)} />
+          <label>data do agendamento</label>
+          <input type="text" value={input5} onChange={(e) => setInput5(e.target.value)} />
+        </div>
+      )}
+
+      {selectedOption === 'Salas' && (
+        <div className='input1'>
+          <label>Nome da Sala:</label>
+          <input type="text" value={input1} onChange={(e) => setInput1(e.target.value)} />
+          <label>Código da sala:</label>
           <input type="text" value={input2} onChange={(e) => setInput2(e.target.value)} />
         </div>
       )}
 
       {selectedOption && (
         <div>
-          <button className='botao'  onClick={handleOptionClick}>Cadastrar</button>
+          <button className='botao' onClick={handleOptionClick}>Cadastrar</button>
         </div>
       )}
-          <button className='botao2'  onClick={handleOptionClick}>Voltar</button>
 
+      <button className='botao2' onClick={handleOptionClick}>Voltar</button>
     </div>
   );
 }
