@@ -107,10 +107,54 @@ left: 700px;
 margin-top: -240px;
 margin-left: 500px;
 width: 300px;
-   
-  
-    
-    
-    
-    
+ 
   }
+
+
+
+
+
+
+  .escolhaCurso{
+    top: 370px;
+    left: auto;
+    width: 400px;
+  }
+
+  .escolhaDisciplina{
+    top: 400px;
+    left: auto;
+    width: 410px;
+
+  }
+
+  .escolhanomeProf{
+    top: 350px;
+    left: auto;
+    width: 410px;
+  }
+
+
+  .labelAgenda{
+    padding: 25px;
+  }
+
+  .agendaCurso{
+    top: 309px;
+    left: 220px;
+  }
+
+  .agendaTurma{
+    top: 390px;
+    left: 220px;
+  }
+  .agendaProfessor{
+    top: 480px;
+    left: 220px;
+  }
+
+  .agendaSala{
+    top: 570px;
+    left: 220px;
+  }
+

@@ -2,12 +2,15 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
+  
   const [selectedOption, setSelectedOption] = useState('');
+  const [selectCurso, setSelectCurso] = useState('');
+  const [selectDisciplina, setSelectDisciplina] = useState('');
+  const [selectTurma, setSelectTurma] = useState('');
+  const [selectProfessor, setselectProfessor] = useState('');
+  const [selectSala, setselectSala] = useState(''); 
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
-  const [input3, setInput3] = useState('');
-  const [input4, setInput4] = useState('');
-  const [input5, setInput5] = useState('');
   const [selectedDays, setSelectedDays] = useState([]);
 
 
@@ -16,10 +19,30 @@ function App() {
     alert(`Cadastrar ${selectedOption} - Input 1: ${input1} - Input 2: ${input2} - Input 3: ${input3} Input 4: ${input4}  Input : ${input5}`);
   };
 
+  const handleSelectChangeCurso = (event) => {
+    setSelectCurso(event.target.value);
+  };
+
+  const handleSelectChangeDisciplina = (event) => {
+    setSelectDisciplina(event.target.value);
+  };
+
+  const handleSelectChangeTurma = (event) => {
+    setSelectTurma(event.target.value);
+  };
+
+  const handleSelectChangeProfessor = (event) => {  
+    setselectProfessor(event.target.value);
+  };
+
+  const handleSelectChangeSala = (event) => {
+    setselectSala(event.target.value);
+  };
+
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
   };
-
+  
   const handleDayToggle = (day) => {
   if (selectedDays.includes(day)) {
     // Se o dia estiver selecionado, remover
@@ -58,8 +81,15 @@ function App() {
         <div className='input1'>
           <label>Nome da Turma:</label>
           <input type="text" value={input1} onChange={(e) => setInput1(e.target.value)} />
-          <label>Id do curso:</label>
-          <input type="text" value={input2} onChange={(e) => setInput2(e.target.value)} />
+           
+          <label className='textEscolhaC' htmlFor='escolhaCurso'>
+          Escolher curso:
+          </label>
+          <select id='escolhaCurso' className='escolhaCurso' value={selectCurso} onChange={handleSelectChangeCurso}>
+          <option value=""></option>
+  
+        </select>
+        
         </div>
       )}
 
@@ -67,10 +97,17 @@ function App() {
         <div className='input1'>
           <label>Nome do Professor:</label>
           <input type="text" value={input1} onChange={(e) => setInput1(e.target.value)} />
+
           <label>CPF:</label>
           <input type="text" value={input2} onChange={(e) => setInput2(e.target.value)} />
-          <label>Disciplina do Professor:</label>
-          <input type="text" value={input3} onChange={(e) => setInput3(e.target.value)} />
+
+
+                  <label  htmlFor='escolhaDisciplina'>
+            Escolher disciplina:
+          </label>
+          <select id='escolhaDisciplina' className='escolhaDisciplina' value={selectDisciplina} onChange={handleSelectChangeDisciplina}>
+            <option value=""></option>  
+          </select>
           <div className='diaD'>
             <label>Dias da semana disponíveis:</label>
             <div className='inputDias'>
@@ -126,10 +163,14 @@ function App() {
 
       {selectedOption === 'Disciplinas' && (
         <div className='input1'>
-          <label>CPF do professor que vai lecionar a Disciplina:</label>
+          <label>CPF do professor:</label>
           <input type="text" value={input1} onChange={(e) => setInput1(e.target.value)} />
-          <label>Nome da Disciplina:</label>
-          <input type="text" value={input2} onChange={(e) => setInput2(e.target.value)} />
+          <label className='textEscolhaD' htmlFor='escolhaDisciplina'>
+         Escolher nome do professor:
+          </label>
+        <select id='escolhanomeProf' className='escolhanomeProf' value={selectDisciplina} onChange={handleSelectChangeDisciplina}>
+           <option value=""></option>
+        </select>
         </div>
       )}
 
@@ -142,20 +183,85 @@ function App() {
         </div>
       )}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {selectedOption === 'Agenda' && (
         <div className='input1'>
-          <label>ID do curso:</label>
-          <input type="text" value={input1} onChange={(e) => setInput1(e.target.value)} />
-          <label>ID da turma:</label>
-          <input type="text" value={input2} onChange={(e) => setInput2(e.target.value)} />
-          <label>CPF do professor:</label>
-          <input type="text" value={input3} onChange={(e) => setInput3(e.target.value)} />
-          <label>ID da sala:</label>
-          <input type="text" value={input4} onChange={(e) => setInput4(e.target.value)} />
-          <label>data do agendamento</label>
-          <input type="text" value={input5} onChange={(e) => setInput5(e.target.value)} />
+         
+            <label  className='labelAgenda'>Escolha o curso:</label>
+        <select className='agendaCurso' id='escolhaCurso' value={selectCurso} onChange={handleSelectChangeCurso}>
+          <option value=""></option>
+       
+        
+        </select>
+
+        <label className='labelAgenda' >Escolher turma:</label>
+        <select className='agendaTurma' id='escolhaTurma' value={selectTurma} onChange={handleSelectChangeTurma}>
+          <option value=""></option>
+      
+        </select>
+
+        <label  className='labelAgenda'>Escolher professor:</label>
+        <select className='agendaProfessor' id='escolhaProfessor' value={selectProfessor} onChange={handleSelectChangeProfessor}>
+          <option value=""></option>
+      
+         
+        </select>
+
+        <label  className='labelAgenda'>Escolher sala:</label>
+        <select className='agendaSala' id='escolhaSala' value={selectSala} onChange={handleSelectChangeSala}>
+          <option value=""></option>
+        
+        
+        </select>
         </div>
       )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {selectedOption === 'Salas' && (
         <div className='input1'>
